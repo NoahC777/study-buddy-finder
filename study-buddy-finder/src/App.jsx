@@ -35,6 +35,11 @@ function App() {
     setNewSubject("");
   };
 
+  const deleteGroup = (id) => {
+      const updatedGroups = groups.filter(group => group.id !== id);
+      setGroups(updatedGroups);
+  };
+
   return (
     <div className="App">
       <h1>UCM Study-Buddy Finder</h1>
@@ -60,6 +65,13 @@ function App() {
             <p>Time: {group.time}</p>
             <p>Members: {group.members}</p>
             <button onClick={() => joinGroup(group.id)}>Join Group</button>
+            <button 
+              onClick={() => deleteGroup(group.id)}
+              style={{ backgroundColor: '#dc3545', marginLeft: '10px' }}
+            >
+              Delete
+            </button>
+
           </div>
         ))}
       </div>
